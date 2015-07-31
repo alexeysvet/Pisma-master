@@ -11,7 +11,11 @@ if ($object->xpdo) {
 
 			$manager = $modx->getManager();
 			$objects = array(
-				'PismaItem',
+				'pismaNewsletter',
+				'pismaSubscriber',
+				'pismaGroup',
+				'pismaGroupSubscribers',
+				'pismaQueue',
 			);
 			foreach ($objects as $tmp) {
 				$manager->createObjectContainer($tmp);

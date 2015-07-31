@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model package="pisma" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="pisma"
-	   version="1.1">
+<model package="pisma" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="pisma" version="1.1">
 
-	<object class="PismaItem" table="pisma_items" extends="xPDOSimpleObject">
-		<field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
-		<field key="description" dbtype="text" phptype="text" null="true" default=""/>
-		<field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1"/>
+<object class="pismaNewsletter" table="pisma_newsletters" extends="xPDOSimpleObject">
+	<field key="title" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+	<field key="date" dbtype="int" precision="20" phptype="timestamp" null="false" default="" />
+	<field key="message" dbtype="text" phptype="string" null="false" default="" />
+	<field key="attachment" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+	<composite alias="Queue" class="pismaQueue" local="id" foreign="newsletter" cardinality="many" owner="local" />
+</object>
 
-		<index alias="name" name="name" primary="false" unique="false" type="BTREE">
-			<column key="name" length="" collation="A" null="false"/>
-		</index>
-		<index alias="active" name="active" primary="false" unique="false" type="BTREE">
-			<column key="active" length="" collation="A" null="false"/>
-		</index>
-	</object>
+<object class="pismaSubscriber" table="pisma_subscribers" extends="xPDOSimpleObject">
+	<field key="firstname" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+	<field key="lastname" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+	<field key="company" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+	<field key="email" dbtype="varchar" precision="255" phptype="string" null="false" default="" index="unique" />
+	<field key="code" dbtype="varchar" precision="32" phptype="string" null="false" default="" />
+	<field key="active" dbtype="int" precision="1" phptype="integer" null="false" default="0" />
+	<field key="signupdate" dbtype="int" precision="20" phptype="timestamp" null="false" default="" />
+	<validation>
+		<rule
+				field="email"
+				name="validEmail"
+				type="preg_match"
+				rule="/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/i"
+				message="Email address invalid"
+				/>
+	</validation>
+	<composite alias="Groups" class="pismaGroupSubscribers" local="id" foreign="subscriber" cardinality="many" owner="local" />
+	<composite alias="Queue" class="pismaQueue" local="id" foreign="subscriber" cardinality="many" owner="local" />
+</object>
+
+<object class="pismaGroup" table="pisma_groups" extends="xPDOSimpleObject">
+	<field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+	<field key="public" dbtype="int" precision="1" phptype="integer" null="false" default="0" />
+	<validation>
+		<rule field="name"
+			  name="preventBlank"
+			  type="xPDOValidationRule"
+			  rule="xPDOMinLengthValidationRule"
+			  value="1"
+			  message="Name is required."
+				/>
+	</validation>
+	<composite alias="Subscribers" class="pismaGroupSubscribers" local="id" foreign="group"  cardinality="many" owner="local" />
+</object>
+
+<object class="pismaGroupSubscribers" table="pisma_groups_subscribers" extends="xPDOSimpleObject">
+	<field key="subscriber" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" />
+	<field key="group" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" />
+	<aggregate alias="Subscriber" class="pismaSubscriber" local="subscriber" foreign="id" cardinality="one" owner="foreign" />
+	<aggregate alias="Group" class="pismaGroup" local="group" foreign="id" cardinality="one" owner="foreign" />
+</object>
+
+<object class="pismaQueue" table="pisma_queue" extends="xPDOSimpleObject">
+	<field key="newsletter" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" />
+	<field key="subscriber" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" index="index" />
+	<field key="sent" dbtype="tinyint" precision="1" attributes="unsigned" phptype="integer" null="false" default="0" />
+	<aggregate alias="Newsletter" class="pismaNewsletter" local="newsletter" foreign="id" cardinality="one" owner="foreign" />
+	<aggregate alias="Subscriber" class="pismaSubscriber" local="subscriber" foreign="id" cardinality="one" owner="foreign" />
+</object>
 
 </model>
