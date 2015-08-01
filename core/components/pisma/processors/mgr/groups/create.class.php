@@ -1,18 +1,12 @@
 <?php
 
-/**
- * Create an Item
- */
 class pismaGroupCreateProcessor extends modObjectCreateProcessor {
 	public $objectType = 'pismaGroup';
 	public $classKey = 'pismaGroup';
 	public $languageTopics = array('pisma');
-	//public $permission = 'create';
 
 
-	/**
-	 * @return bool
-	 */
+
 	public function beforeSet() {
 		$name = trim($this->getProperty('name'));
 		if (empty($name)) {

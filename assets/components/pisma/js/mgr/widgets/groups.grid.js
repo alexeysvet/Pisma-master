@@ -123,7 +123,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 				: _('pisma_group_remove_confirm'),
 			url: this.config.url,
 			params: {
-				action: 'mgr/pisma/remove',
+				action: 'mgr/groups/remove',
 				ids: Ext.util.JSON.encode(ids)
 			},
 			listeners: {
