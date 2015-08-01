@@ -1,8 +1,6 @@
 Pisma.grid.Newsletters = function (config) {
 	config = config || {};
-	if (!config.id) {
-		config.id = 'pisma-grid-items';
-	}
+	if (!config.id) {config.id = 'pisma-grid-items';}
 	Ext.applyIf(config, {
 		url: Pisma.config.connector_url,
 		fields: this.getFields(config),
@@ -20,7 +18,7 @@ Pisma.grid.Newsletters = function (config) {
 		},
 		paging: true,
 		remoteSort: true,
-		autoHeight: true,
+		autoHeight: true
 	});
 	Pisma.grid.Newsletters.superclass.constructor.call(this, config);
 	// Clear selection on grid refresh
@@ -68,7 +66,7 @@ Ext.extend(Pisma.grid.Newsletters, MODx.grid.Grid, {
 			url: this.config.url,
 			params: {
 				action: 'mgr/newsletters/remove',
-				ids: Ext.util.JSON.encode(ids),
+				ids: Ext.util.JSON.encode(ids)
 			},
 			listeners: {
 				success: {
@@ -84,37 +82,14 @@ Ext.extend(Pisma.grid.Newsletters, MODx.grid.Grid, {
 	getFields: function (config) {return ['id', 'title', 'date', 'emails','emails_sent', 'attachment', 'actions'];},
 
 	getColumns: function (config) {
-		return [{
-			header: _('pisma_newsletters_id'),
-			dataIndex: 'id',
-			sortable: true,
-			width: 70
-		}, {
-			header: _('pisma_newsletters_title'),
-			dataIndex: 'title',
-			sortable: true,
-			width: 200
-		}, {
-			header: _('pisma_newsletters_date'),
-			dataIndex: 'date',
-			sortable: false,
-			width: 100
-		}, {
-			header: _('pisma_newsletters_emails'),
-			dataIndex: 'emails',
-			sortable: false,
-			width: 100
-		}, {
-			header: _('pisma_newsletters_emails_sent'),
-			dataIndex: 'emails_sent',
-			sortable: true,
-			width: 100
-		}, {
-			header: _('pisma_newsletters_attachment'),
-			dataIndex: 'attachment',
-			sortable: true,
-			width: 100
-		}];
+		return [
+			{header: _('pisma_newsletter_id'),dataIndex: 'id',sortable: true,width: 70},
+			{header: _('pisma_newsletter_title'),dataIndex: 'title',sortable: true,width: 200},
+			{header: _('pisma_newsletter_date'),dataIndex: 'date',sortable: false,width: 100},
+			{header: _('pisma_newsletter_emails'),dataIndex: 'emails',sortable: false,width: 100},
+			{header: _('pisma_newsletter_emails_sent'),dataIndex: 'emails_sent',sortable: true,width: 100},
+			{header: _('pisma_newsletter_attachment'),dataIndex: 'attachment',sortable: true,width: 100}
+		]
 	},
 
 	getTopBar: function (config) {
@@ -160,16 +135,19 @@ Ext.reg('pisma-grid-newsletters', Pisma.grid.Newsletters);
 
 Pisma.window.CreateNewsletter = function (config) {
 	config = config || {};
-	if (!config.id) {
-		config.id = 'pisma-newsletter-window-create';
-	}
+	if (!config.id) {config.id = 'pisma-newsletter-window-create';}
 	Ext.applyIf(config, {
 		title: _('pisma_newsletter_create'),
 		width: 550,
 		autoHeight: true,
 		url: Pisma.config.connector_url,
 		action: 'mgr/newsletters/create',
-		fields: this.getFields(config),
+		fields: [
+			{xtype: 'textfield',fieldLabel: _('pisma_newsletter_title'),name: 'title',id: config.id + '-title',anchor: '99%',allowBlank: false},
+			{xtype: 'textfield',fieldLabel: _('pisma_newsletter_docid'),name: 'docid',id: config.id + '-docid',anchor: '99%',allowBlank: false},
+			{xtype: 'textarea',fieldLabel: _('pisma_newsletter_groups'),name: 'groups',id: config.id + '-groups',height: 150,anchor: '99%'},
+			{xtype: 'textfield',fieldLabel: _('pisma_newsletter_attachment'),name: 'attachment',id: config.id + '-attachment',width: 300,anchor: '99%',allowBlank: true,inputType: 'file'}
+		],
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
 				this.submit()
@@ -178,39 +156,5 @@ Pisma.window.CreateNewsletter = function (config) {
 	});
 	Pisma.window.CreateNewsletter.superclass.constructor.call(this, config);
 };
-Ext.extend(Pisma.window.CreateNewsletter, MODx.Window, {
-	getFields: function (config) {
-		return [{
-			xtype: 'textfield',
-			fieldLabel: _('pisma_newsletters_title'),
-			name: 'title',
-			id: config.id + '-title',
-			anchor: '99%',
-			allowBlank: false,
-		}, {
-			xtype: 'textfield',
-			fieldLabel: _('pisma_newsletters_docid'),
-			name: 'docid',
-			id: config.id + '-docid',
-			anchor: '99%',
-			allowBlank: false,
-		}, {
-			xtype: 'textarea',
-			fieldLabel: _('pisma_newsletters_groups'),
-			name: 'groups',
-			id: config.id + '-groups',
-			height: 150,
-			anchor: '99%'
-		}, {
-			xtype: 'textfield',
-			fieldLabel: _('pisma_newsletters_attachment'),
-			name: 'attachment',
-			id: config.id + '-attachment',
-			width: 300,
-			anchor: '99%',
-			allowBlank: true,
-			inputType: 'file'
-		}];
-	}
-});
+Ext.extend(Pisma.window.CreateNewsletter, MODx.Window);
 Ext.reg('pisma-newsletter-window-create', Pisma.window.CreateNewsletter);

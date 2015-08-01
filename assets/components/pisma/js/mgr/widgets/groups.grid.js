@@ -1,17 +1,13 @@
 Pisma.grid.Groups = function (config) {
 	config = config || {};
-	if (!config.id) {
-		config.id = 'pisma-grid-groups';
-	}
+	if (!config.id) {config.id = 'pisma-grid-groups';}
 	Ext.applyIf(config, {
 		url: Pisma.config.connector_url,
 		fields: this.getFields(config),
 		columns: this.getColumns(config),
 		tbar: this.getTopBar(config),
 		sm: new Ext.grid.CheckboxSelectionModel(),
-		baseParams: {
-			action: 'mgr/groups/getlist'
-		},
+		baseParams: {action: 'mgr/groups/getlist'},
 		listeners: {
 			rowDblClick: function (grid, rowIndex, e) {
 				var row = grid.store.getAt(rowIndex);
@@ -35,7 +31,6 @@ Pisma.grid.Groups = function (config) {
 		autoHeight: true
 	});
 	Pisma.grid.Groups.superclass.constructor.call(this, config);
-
 	// Clear selection on grid refresh
 	this.store.on('load', function () {
 		if (this._getSelectedIds().length) {
@@ -78,7 +73,6 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 			return false;
 		}
 		var id = this.menu.record.id;
-
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {

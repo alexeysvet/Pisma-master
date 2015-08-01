@@ -6,14 +6,14 @@ $_lang['pisma_menu_desc'] = 'Управления рассылками на са
 $_lang['pisma_intro_msg'] = 'Вы можете выделять сразу несколько предметов при помощи Shift или Ctrl.';
 
 $_lang['pisma_newsletters'] = 'Рассылки';
-$_lang['pisma_newsletters_id'] = 'Id';
-$_lang['pisma_newsletters_title'] = 'Тема рассылки';
-$_lang['pisma_newsletters_date'] = 'Дата';
-$_lang['pisma_newsletters_emails'] = 'Всего к отправке';
-$_lang['pisma_newsletters_emails_sent'] = 'Отправлено';
-$_lang['pisma_newsletters_attachment'] = 'Вложение';
-$_lang['pisma_newsletters_docid'] = 'Id Документа';
-$_lang['pisma_newsletters_groups'] = 'Группы';
+$_lang['pisma_newsletter_id'] = 'Id';
+$_lang['pisma_newsletter_title'] = 'Тема рассылки';
+$_lang['pisma_newsletter_date'] = 'Дата';
+$_lang['pisma_newsletter_emails'] = 'Всего к отправке';
+$_lang['pisma_newsletter_emails_sent'] = 'Отправлено';
+$_lang['pisma_newsletter_attachment'] = 'Вложение';
+$_lang['pisma_newsletter_docid'] = 'Id Документа';
+$_lang['pisma_newsletter_groups'] = 'Группы';
 
 $_lang['pisma_newsletter_create'] = 'Новая рассылка';
 $_lang['pisma_newsletter_remove'] = 'Удалить рассылку';
