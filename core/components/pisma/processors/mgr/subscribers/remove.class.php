@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Disable an Item
+ * Remove an Items
  */
-class pismaNewsletterDisableProcessor extends modObjectProcessor {
-	public $objectType = 'pismaNewsletter';
-	public $classKey = 'pismaNewsletter';
+class pismaSubscriberRemoveProcessor extends modObjectProcessor {
+	public $objectType = 'pismaSubscriber';
+	public $classKey = 'pismaSubscriber';
 	public $languageTopics = array('pisma');
-	//public $permission = 'save';
+	//public $permission = 'remove';
 
 
 	/**
@@ -20,17 +20,16 @@ class pismaNewsletterDisableProcessor extends modObjectProcessor {
 
 		$ids = $this->modx->fromJSON($this->getProperty('ids'));
 		if (empty($ids)) {
-			return $this->failure($this->modx->lexicon('pisma_item_err_ns'));
+			return $this->failure($this->modx->lexicon('pisma_subscriber_err_ns'));
 		}
 
 		foreach ($ids as $id) {
 			/** @var PismaItem $object */
 			if (!$object = $this->modx->getObject($this->classKey, $id)) {
-				return $this->failure($this->modx->lexicon('pisma_item_err_nf'));
+				return $this->failure($this->modx->lexicon('pisma_subscriber_err_nf'));
 			}
 
-			$object->set('active', false);
-			$object->save();
+			$object->remove();
 		}
 
 		return $this->success();
@@ -38,4 +37,4 @@ class pismaNewsletterDisableProcessor extends modObjectProcessor {
 
 }
 
-return 'pismaNewsletterDisableProcessor';
+return 'pismaSubscriberRemoveProcessor';

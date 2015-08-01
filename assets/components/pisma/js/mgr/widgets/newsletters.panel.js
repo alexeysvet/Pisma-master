@@ -24,27 +24,30 @@ Pisma.panel.Newsletters = function (config) {
 				layout: 'anchor',
 				items: [{
 					html: _('pisma_intro_msg'),
-					cls: 'panel-desc',
+					cls: 'panel-desc'
 				}, {
 					xtype: 'pisma-grid-newsletters',
-					cls: 'main-wrapper',
+					cls: 'main-wrapper'
 				}]
 			},{
 				title: _('pisma_groups'),
 				layout: 'anchor',
 				items: [{
 					html: _('pisma_intro_msg'),
-					cls: 'panel-desc',
+					cls: 'panel-desc'
 				}, {
 					xtype: 'pisma-grid-groups',
-					cls: 'main-wrapper',
+					cls: 'main-wrapper'
 				}]
 			},{
 				title: _('pisma_subscribers'),
 				layout: 'anchor',
 				items: [{
 					html: _('pisma_intro_msg'),
-					cls: 'panel-desc',
+					cls: 'panel-desc'
+				}, {
+					xtype: 'pisma-grid-subscribers',
+					cls: 'main-wrapper'
 				}]
 			}]
 		}]
