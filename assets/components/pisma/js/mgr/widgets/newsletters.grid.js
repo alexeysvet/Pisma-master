@@ -83,7 +83,7 @@ Ext.extend(Pisma.grid.Newsletters, MODx.grid.Grid, {
 
 	getColumns: function (config) {
 		return [
-			{header: _('pisma_newsletter_id'),dataIndex: 'id',sortable: true,width: 70},
+			{header: _('pisma_id'),dataIndex: 'id',sortable: true,width: 70},
 			{header: _('pisma_newsletter_title'),dataIndex: 'title',sortable: true,width: 200},
 			{header: _('pisma_newsletter_date'),dataIndex: 'date',sortable: false,width: 100},
 			{header: _('pisma_newsletter_emails'),dataIndex: 'emails',sortable: false,width: 100},

@@ -135,11 +135,11 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 
 	getColumns: function (config) {
 		return [
-			{header: _('pisma_newsletters_id'),dataIndex: 'id',sortable: true,width: 40},
+			{header: _('pisma_id'),dataIndex: 'id',sortable: true,width: 40},
 			{header: _('pisma_group_public'),dataIndex: 'public',sortable: true,	width: 70,renderer: Pisma.utils.renderBoolean},
 			{header: _('pisma_group_name'),dataIndex: 'name',sortable: true,width: 350},
 			{header: _('pisma_group_subscribers'),dataIndex: 'subscribers',sortable: true,width: 100},
-			{header: _('pisma_group_actions'),dataIndex: 'actions',sortable: false,width: 100,id: 'actions',renderer: Pisma.utils.renderActions}
+			{header: _('pisma_actions'),dataIndex: 'actions',sortable: false,width: 100,id: 'actions',renderer: Pisma.utils.renderActions}
 		];
 	},
 

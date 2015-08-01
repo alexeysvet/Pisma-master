@@ -14,27 +14,22 @@ $_lang['pisma_newsletter_emails_sent'] = 'Отправлено';
 $_lang['pisma_newsletter_attachment'] = 'Вложение';
 $_lang['pisma_newsletter_docid'] = 'Id Документа';
 $_lang['pisma_newsletter_groups'] = 'Группы';
-
 $_lang['pisma_newsletter_create'] = 'Новая рассылка';
 $_lang['pisma_newsletter_remove'] = 'Удалить рассылку';
 $_lang['pisma_newsletters_remove'] = 'Удалить рассылки';
 $_lang['pisma_newsletter_remove_confirm'] = 'Вы уверены, что хотите удалить эту рассылку?';
 $_lang['pisma_newsletters_remove_confirm'] = 'Вы уверены, что хотите удалить эти рассылки?';
-
-
 $_lang['pisma_newsletters_err_title'] = 'Введите тему рассылки.';
 $_lang['pisma_newsletters_err_ae'] = 'Рассылка с таким именем уже существует.';
 $_lang['pisma_newsletter_err_nf'] = 'Рассылка не найдена.';
 $_lang['pisma_newsletter_err_ns'] = 'Рассылка не указана.';
-$_lang['pisma_item_err_remove'] = 'Ошибка при удалении Предмета.';
-$_lang['pisma_item_err_save'] = 'Ошибка при сохранении Предмета.';
 
 
 $_lang['pisma_groups'] = 'Группы';
 $_lang['pisma_group_public'] = 'Активная группа';
 $_lang['pisma_group_name'] = 'Имя группы';
 $_lang['pisma_group_subscribers'] = 'Подписчиков в группе';
-$_lang['pisma_group_actions'] = 'Действия';
+$_lang['pisma_actions'] = 'Действия';
 $_lang['pisma_group_create'] = 'Новая группа';
 $_lang['pisma_group_update'] = 'Изменить группу';
 $_lang['pisma_group_remove'] = 'Удалить группу';
@@ -48,13 +43,15 @@ $_lang['pisma_group_err_ns'] = 'Группа не указана.';
 
 
 
-
-
-
-
-
-
-
-
-
 $_lang['pisma_subscribers'] = 'Подписчики';
+$_lang['pisma_subscriber_create'] = 'Новый подписчик';
+$_lang['pisma_subscriber_active'] = 'Активный подписчик';
+$_lang['pisma_subscriber_email'] = 'E-mail';
+$_lang['pisma_subscriber_firstname'] = 'Имя';
+$_lang['pisma_subscriber_lastname'] = 'Фамилия';
+$_lang['pisma_subscriber_company'] = 'Компания';
+$_lang['pisma_subscriber_signupdate'] = ' Дата подписки';
+
+
+$_lang['pisma_id'] = 'Id';
+$_lang['pisma_actions'] = 'Действия';

@@ -131,15 +131,18 @@ Ext.extend(Pisma.grid.Subscribers, MODx.grid.Grid, {
 		return true;
 	},
 
-	getFields: function (config) {return ['id', 'public', 'name', 'subscribers', 'actions'];},
+	getFields: function (config) {return ['id', 'active', 'email', 'firstname', 'lastname', 'company', 'signupdate', 'actions'];},
 
 	getColumns: function (config) {
 		return [
-			{header: _('pisma_newsletters_id'),dataIndex: 'id',sortable: true,width: 40},
-			{header: _('pisma_group_public'),dataIndex: 'public',sortable: true,	width: 70,renderer: Pisma.utils.renderBoolean},
-			{header: _('pisma_group_name'),dataIndex: 'name',sortable: true,width: 350},
-			{header: _('pisma_group_subscribers'),dataIndex: 'subscribers',sortable: true,width: 100},
-			{header: _('pisma_group_actions'),dataIndex: 'actions',sortable: false,width: 100,id: 'actions',renderer: Pisma.utils.renderActions}
+			{header: _('pisma_id'),dataIndex: 'id',sortable: true,width: 40},
+			{header: _('pisma_subscriber_active'),dataIndex: 'active',sortable: true,	width: 90,renderer: Pisma.utils.renderBoolean},
+			{header: _('pisma_subscriber_email'),dataIndex: 'email',sortable: true,width: 120},
+			{header: _('pisma_subscriber_firstname'),dataIndex: 'firstname',sortable: true,width: 100},
+			{header: _('pisma_subscriber_lastname'),dataIndex: 'lastname',sortable: true,width: 100},
+			{header: _('pisma_subscriber_company'),dataIndex: 'company',sortable: true,width: 100},
+			{header: _('pisma_subscriber_signupdate'),dataIndex: 'signupdate',sortable: true,width: 100},
+			{header: _('pisma_actions'),dataIndex: 'actions',sortable: false,width: 100,id: 'actions',renderer: Pisma.utils.renderActions}
 		];
 	},
 
