@@ -7,7 +7,9 @@ define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 define('PKG_VERSION', '1.0.0');
 define('PKG_RELEASE', 'beta');
 define('PKG_AUTO_INSTALL', true);
-define('PKG_NAMESPACE_PATH', '{core_path}components/' . PKG_NAME_LOWER . '/');
+// Временно
+//define('PKG_NAMESPACE_PATH', '{core_path}components/' . PKG_NAME_LOWER . '/');
+define('PKG_NAMESPACE_PATH', '{base_path}Pisma-master/core/components/'.PKG_NAME_LOWER.'/');
 
 /* define paths */
 if (isset($_SERVER['MODX_BASE_PATH'])) {

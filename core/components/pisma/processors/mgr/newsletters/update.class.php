@@ -3,9 +3,9 @@
 /**
  * Update an Item
  */
-class PismaItemUpdateProcessor extends modObjectUpdateProcessor {
-	public $objectType = 'PismaItem';
-	public $classKey = 'PismaItem';
+class pismaNewsletterUpdateProcessor extends modObjectUpdateProcessor {
+	public $objectType = 'pismaNewsletter';
+	public $classKey = 'pismaNewsletter';
 	public $languageTopics = array('pisma');
 	//public $permission = 'save';
 
@@ -46,4 +46,4 @@ class PismaItemUpdateProcessor extends modObjectUpdateProcessor {
 	}
 }
 
-return 'PismaItemUpdateProcessor';
+return 'pismaNewsletterUpdateProcessor';

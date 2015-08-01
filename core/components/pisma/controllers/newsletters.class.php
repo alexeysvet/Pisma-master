@@ -4,7 +4,7 @@
  * The home manager controller for Pisma.
  *
  */
-class PismaHomeManagerController extends PismaMainController {
+class PismaNewslettersManagerController extends PismaMainController {
 	/* @var Pisma $Pisma */
 	public $Pisma;
 
@@ -31,13 +31,12 @@ class PismaHomeManagerController extends PismaMainController {
 		$this->addCss($this->Pisma->config['cssUrl'] . 'mgr/main.css');
 		$this->addCss($this->Pisma->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
 		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/misc/utils.js');
-		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/items.grid.js');
-		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/items.windows.js');
-		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/home.panel.js');
-		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/sections/home.js');
+		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/newsletters.grid.js');
+		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/newsletters.panel.js');
+		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/sections/newsletters.js');
 		$this->addHtml('<script type="text/javascript">
 		Ext.onReady(function() {
-			MODx.load({ xtype: "pisma-page-home"});
+			MODx.load({ xtype: "pisma-page-newsletters"});
 		});
 		</script>');
 	}
@@ -47,6 +46,6 @@ class PismaHomeManagerController extends PismaMainController {
 	 * @return string
 	 */
 	public function getTemplateFile() {
-		return $this->Pisma->config['templatesPath'] . 'home.tpl';
+		return $this->Pisma->config['templatesPath'] . 'newsletters.tpl';
 	}
 }

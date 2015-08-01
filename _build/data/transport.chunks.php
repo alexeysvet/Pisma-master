@@ -3,8 +3,8 @@
 $chunks = array();
 
 $tmp = array(
-	'tpl.Pisma.item' => array(
-		'file' => 'item',
+	'tpl.Pisma.newsletters' => array(
+		'file' => 'newsletters',
 		'description' => '',
 	),
 );

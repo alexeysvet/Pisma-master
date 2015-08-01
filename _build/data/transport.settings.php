@@ -2,14 +2,27 @@
 
 $settings = array();
 
-$tmp = array(/*
-	'some_setting' => array(
-		'xtype' => 'combo-boolean',
-		'value' => true,
-		'area' => 'pisma_main',
+$tmp = array(
+	'core_path' => array(
+		'xtype' => 'textfield',
+		'value' => '{base_path}Pisma-master/core/components/pisma/',
+		'namespace' => 'pisma',
+		'area' => 'settings',
 	),
-	*/
+	'assets_path' => array(
+		'xtype' => 'textfield',
+		'value' => '{base_path}Pisma-master/assets/components/pisma/',
+		'namespace' => 'pisma',
+		'area' => 'settings',
+	),
+	'assets_url' => array(
+		'xtype' => 'textfield',
+		'value' => '/Pisma-master/assets/components/pisma/',
+		'namespace' => 'pisma',
+		'area' => 'settings',
+	),
 );
+
 
 foreach ($tmp as $k => $v) {
 	/* @var modSystemSetting $setting */

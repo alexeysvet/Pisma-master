@@ -3,9 +3,9 @@
 /**
  * Disable an Item
  */
-class PismaItemDisableProcessor extends modObjectProcessor {
-	public $objectType = 'PismaItem';
-	public $classKey = 'PismaItem';
+class pismaNewsletterDisableProcessor extends modObjectProcessor {
+	public $objectType = 'pismaNewsletter';
+	public $classKey = 'pismaNewsletter';
 	public $languageTopics = array('pisma');
 	//public $permission = 'save';
 
@@ -38,4 +38,4 @@ class PismaItemDisableProcessor extends modObjectProcessor {
 
 }
 
-return 'PismaItemDisableProcessor';
+return 'pismaNewsletterDisableProcessor';

@@ -3,9 +3,9 @@
 /**
  * Get an Item
  */
-class PismaItemGetProcessor extends modObjectGetProcessor {
-	public $objectType = 'PismaItem';
-	public $classKey = 'PismaItem';
+class pismaNewsletterGetProcessor extends modObjectGetProcessor {
+	public $objectType = 'pismaNewsletter';
+	public $classKey = 'pismaNewsletter';
 	public $languageTopics = array('pisma:default');
 	//public $permission = 'view';
 
@@ -26,4 +26,4 @@ class PismaItemGetProcessor extends modObjectGetProcessor {
 
 }
 
-return 'PismaItemGetProcessor';
+return 'pismaNewsletterGetProcessor';

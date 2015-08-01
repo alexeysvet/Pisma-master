@@ -1,11 +1,11 @@
-Pisma.panel.Home = function (config) {
+Pisma.panel.Newsletters = function (config) {
 	config = config || {};
 	Ext.apply(config, {
 		baseCls: 'modx-formpanel',
 		layout: 'anchor',
 		/*
 		 stateful: true,
-		 stateId: 'pisma-panel-home',
+		 stateId: 'pisma-panel-newsletters',
 		 stateEvents: ['tabchange'],
 		 getState:function() {return {activeTab:this.items.indexOf(this.getActiveTab())};},
 		 */
@@ -20,19 +20,33 @@ Pisma.panel.Home = function (config) {
 			border: true,
 			hideMode: 'offsets',
 			items: [{
-				title: _('pisma_items'),
+				title: _('pisma_newsletters'),
 				layout: 'anchor',
 				items: [{
 					html: _('pisma_intro_msg'),
 					cls: 'panel-desc',
 				}, {
-					xtype: 'pisma-grid-items',
+					xtype: 'pisma-grid-newsletters',
 					cls: 'main-wrapper',
+				}]
+			},{
+				title: _('pisma_groups'),
+				layout: 'anchor',
+				items: [{
+					html: _('pisma_intro_msg'),
+					cls: 'panel-desc',
+				}]
+			},{
+				title: _('pisma_subscribers'),
+				layout: 'anchor',
+				items: [{
+					html: _('pisma_intro_msg'),
+					cls: 'panel-desc',
 				}]
 			}]
 		}]
 	});
-	Pisma.panel.Home.superclass.constructor.call(this, config);
+	Pisma.panel.Newsletters.superclass.constructor.call(this, config);
 };
-Ext.extend(Pisma.panel.Home, MODx.Panel);
-Ext.reg('pisma-panel-home', Pisma.panel.Home);
+Ext.extend(Pisma.panel.Newsletters, MODx.Panel);
+Ext.reg('pisma-panel-newsletters', Pisma.panel.Newsletters);

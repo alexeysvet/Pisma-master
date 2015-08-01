@@ -5,7 +5,7 @@ $properties = array();
 $tmp = array(
 	'tpl' => array(
 		'type' => 'textfield',
-		'value' => 'tpl.Pisma.item',
+		'value' => 'tpl.Pisma.newsletters',
 	),
 	'sortby' => array(
 		'type' => 'textfield',

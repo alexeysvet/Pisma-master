@@ -55,6 +55,6 @@ class IndexManagerController extends PismaMainController {
 	 * @return string
 	 */
 	public static function getDefaultController() {
-		return 'home';
+		return 'newsletters';
 	}
 }
