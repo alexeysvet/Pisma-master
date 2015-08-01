@@ -25,7 +25,7 @@ Pisma.grid.Groups = function (config) {
 			showPreview: true,
 			scrollOffset: 0,
 			getRowClass: function (rec, ri, p) {
-				return !rec.data.active
+				return !rec.data.public
 					? 'pisma-grid-row-disabled'
 					: '';
 			}
@@ -215,3 +215,30 @@ Pisma.window.CreateGroup = function (config) {
 };
 Ext.extend(Pisma.window.CreateGroup, MODx.Window);
 Ext.reg('pisma-group-window-create', Pisma.window.CreateGroup);
+
+
+Pisma.window.UpdateGroup = function (config) {
+	config = config || {};
+	if (!config.id) {
+		config.id = 'pisma-group-window-update';
+	}
+	Ext.applyIf(config, {
+		title: _('pisma_group_update'),
+		width: 550,
+		autoHeight: true,
+		url: Pisma.config.connector_url,
+		action: 'mgr/groups/update',
+		fields: [
+			{xtype: 'textfield',fieldLabel: _('pisma_group_name'),name: 'name',id: config.id + '-name',anchor: '99%',allowBlank: false},
+			{xtype: 'xcheckbox',boxLabel: _('pisma_group_public'),name: 'public',id: config.id + '-public',checked: false}
+		],
+		keys: [{
+			key: Ext.EventObject.ENTER, shift: true, fn: function () {
+				this.submit()
+			}, scope: this
+		}]
+	});
+	Pisma.window.UpdateGroup.superclass.constructor.call(this, config);
+};
+Ext.extend(Pisma.window.UpdateGroup, MODx.Window);
+Ext.reg('pisma-group-window-update', Pisma.window.UpdateGroup);

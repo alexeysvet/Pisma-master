@@ -36,6 +36,7 @@ $_lang['pisma_group_name'] = 'Имя группы';
 $_lang['pisma_group_subscribers'] = 'Подписчиков в группе';
 $_lang['pisma_group_actions'] = 'Действия';
 $_lang['pisma_group_create'] = 'Новая группа';
+$_lang['pisma_group_update'] = 'Изменить группу';
 $_lang['pisma_group_remove'] = 'Удалить группу';
 $_lang['pisma_groups_remove'] = 'Удалить группы';
 $_lang['pisma_group_remove_confirm'] = 'Вы уверены, что хотите удалить эту группу?';

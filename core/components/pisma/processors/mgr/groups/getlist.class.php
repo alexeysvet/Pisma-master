@@ -17,6 +17,16 @@ class pismaGroupGetListProcessor extends modObjectGetListProcessor {
 		$array = $object->toArray();
 		$array['actions'] = array();
 
+		// Edit
+		$array['actions'][] = array(
+			'cls' => '',
+			'icon' => 'icon icon-edit',
+			'title' => $this->modx->lexicon('pisma_group_update'),
+			'action' => 'updateItem',
+			'button' => true,
+			'menu' => true,
+		);
+
 		// Remove
 		$array['actions'][] = array(
 			'cls' => '',
