@@ -12,7 +12,7 @@ $_lang['pisma_newsletters_date'] = 'Дата';
 $_lang['pisma_newsletters_emails'] = 'Всего к отправке';
 $_lang['pisma_newsletters_emails_sent'] = 'Отправлено';
 $_lang['pisma_newsletters_attachment'] = 'Вложение';
-$_lang['pisma_newsletters_docid'] = 'ID Документа';
+$_lang['pisma_newsletters_docid'] = 'Id Документа';
 $_lang['pisma_newsletters_groups'] = 'Группы';
 
 $_lang['pisma_newsletter_create'] = 'Новая рассылка';
@@ -31,4 +31,27 @@ $_lang['pisma_item_err_save'] = 'Ошибка при сохранении Пре
 
 
 $_lang['pisma_groups'] = 'Группы';
+$_lang['pisma_groups_active'] = 'Активен';
+$_lang['pisma_groups_email'] = 'Email';
+$_lang['pisma_groups_firstname'] = 'Имя';
+$_lang['pisma_groups_lastname'] = 'Фамилия';
+$_lang['pisma_groups_signupdate'] = 'Дата подписки';
+$_lang['pisma_groups_actions'] = 'Действия';
+$_lang['pisma_group_create'] = 'Новая группа';
+$_lang['pisma_group_remove'] = 'Удалить группу';
+$_lang['pisma_groups_remove'] = 'Удалить группы';
+$_lang['pisma_group_remove_confirm'] = 'Вы уверены, что хотите удалить эту группу?';
+$_lang['pisma_groups_remove_confirm'] = 'Вы уверены, что хотите удалить эти группу?';
+
+
+
+
+
+
+
+
+
+
+
+
 $_lang['pisma_subscribers'] = 'Подписчики';

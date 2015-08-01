@@ -35,6 +35,9 @@ Pisma.panel.Newsletters = function (config) {
 				items: [{
 					html: _('pisma_intro_msg'),
 					cls: 'panel-desc',
+				}, {
+					xtype: 'pisma-grid-groups',
+					cls: 'main-wrapper',
 				}]
 			},{
 				title: _('pisma_subscribers'),
