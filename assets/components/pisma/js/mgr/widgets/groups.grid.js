@@ -4,7 +4,7 @@ Pisma.grid.Groups = function (config) {
 		config.id = 'pisma-grid-groups';
 	}
 	Ext.applyIf(config, {
-		url: modExtra.config.connector_url,
+		url: Pisma.config.connector_url,
 		fields: this.getFields(config),
 		columns: this.getColumns(config),
 		tbar: this.getTopBar(config),
@@ -34,7 +34,7 @@ Pisma.grid.Groups = function (config) {
 		remoteSort: true,
 		autoHeight: true,
 	});
-	Pisma.grid.Items.superclass.constructor.call(this, config);
+	Pisma.grid.Groups.superclass.constructor.call(this, config);
 
 	// Clear selection on grid refresh
 	this.store.on('load', function () {
@@ -49,7 +49,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 	getMenu: function (grid, rowIndex) {
 		var ids = this._getSelectedIds();
 		var row = grid.getStore().getAt(rowIndex);
-		var menu = modExtra.utils.getMenu(row.data['actions'], this, ids);
+		var menu = Pisma.utils.getMenu(row.data['actions'], this, ids);
 		this.addContextMenuItem(menu);
 	},
 
@@ -148,7 +148,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 		}, {
 			header: _('pisma_groups_active'),
 			dataIndex: 'active',
-			renderer: modExtra.utils.renderBoolean,
+			renderer: Pisma.utils.renderBoolean,
 			sortable: true,
 			width: 70,
 		}, {
@@ -174,7 +174,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 		}, {
 			header: _('pisma_groups_actions'),
 			dataIndex: 'actions',
-			renderer: modExtra.utils.renderActions,
+			renderer: Pisma.utils.renderActions,
 			sortable: false,
 			width: 100,
 			id: 'actions'
@@ -221,4 +221,4 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 		return ids;
 	}
 });
-Ext.reg('pisma-grid-groups', modExtra.grid.Groups);
+Ext.reg('pisma-grid-groups', Pisma.grid.Groups);

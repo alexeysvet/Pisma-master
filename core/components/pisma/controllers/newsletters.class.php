@@ -31,9 +31,10 @@ class PismaNewslettersManagerController extends PismaMainController {
 		$this->addCss($this->Pisma->config['cssUrl'] . 'mgr/main.css');
 		$this->addCss($this->Pisma->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
 		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/misc/utils.js');
-		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/newsletters.grid.js');
-		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/newsletters.panel.js');
 		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/sections/newsletters.js');
+		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/newsletters.panel.js');
+		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/newsletters.grid.js');
+		$this->addJavascript($this->Pisma->config['jsUrl'] . 'mgr/widgets/groups.grid.js');
 		$this->addHtml('<script type="text/javascript">
 		Ext.onReady(function() {
 			MODx.load({ xtype: "pisma-page-newsletters"});
