@@ -31,17 +31,19 @@ $_lang['pisma_item_err_save'] = 'Ошибка при сохранении Пре
 
 
 $_lang['pisma_groups'] = 'Группы';
-$_lang['pisma_groups_active'] = 'Активен';
-$_lang['pisma_groups_email'] = 'Email';
-$_lang['pisma_groups_firstname'] = 'Имя';
-$_lang['pisma_groups_lastname'] = 'Фамилия';
-$_lang['pisma_groups_signupdate'] = 'Дата подписки';
-$_lang['pisma_groups_actions'] = 'Действия';
+$_lang['pisma_group_public'] = 'Активная группа';
+$_lang['pisma_group_name'] = 'Имя группы';
+$_lang['pisma_group_subscribers'] = 'Подписчиков в группе';
+$_lang['pisma_group_actions'] = 'Действия';
 $_lang['pisma_group_create'] = 'Новая группа';
 $_lang['pisma_group_remove'] = 'Удалить группу';
 $_lang['pisma_groups_remove'] = 'Удалить группы';
 $_lang['pisma_group_remove_confirm'] = 'Вы уверены, что хотите удалить эту группу?';
 $_lang['pisma_groups_remove_confirm'] = 'Вы уверены, что хотите удалить эти группу?';
+$_lang['pisma_group_err_title'] = 'Введите имя группы';
+$_lang['pisma_group_err_ae'] = 'Группа с таким именем уже существует.';
+$_lang['pisma_group_err_nf'] = 'Группа не найдена.';
+$_lang['pisma_group_err_ns'] = 'Группа не указана.';
 
 
 

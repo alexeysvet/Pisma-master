@@ -14,12 +14,12 @@ class pismaGroupCreateProcessor extends modObjectCreateProcessor {
 	 * @return bool
 	 */
 	public function beforeSet() {
-		$title = trim($this->getProperty('title'));
-		if (empty($title)) {
-			$this->modx->error->addField('title', $this->modx->lexicon('pisma_newsletters_err_title'));
+		$name = trim($this->getProperty('name'));
+		if (empty($name)) {
+			$this->modx->error->addField('name', $this->modx->lexicon('pisma_group_err_name'));
 		}
-		elseif ($this->modx->getCount($this->classKey, array('title' => $title))) {
-			$this->modx->error->addField('title', $this->modx->lexicon('pisma_newsletters_err_ae'));
+		elseif ($this->modx->getCount($this->classKey, array('name' => $name))) {
+			$this->modx->error->addField('name', $this->modx->lexicon('pisma_group_err_ae'));
 		}
 
 		return parent::beforeSet();

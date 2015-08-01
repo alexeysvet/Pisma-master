@@ -32,7 +32,7 @@ Pisma.grid.Groups = function (config) {
 		},
 		paging: true,
 		remoteSort: true,
-		autoHeight: true,
+		autoHeight: true
 	});
 	Pisma.grid.Groups.superclass.constructor.call(this, config);
 
@@ -55,7 +55,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 
 	createItem: function (btn, e) {
 		var w = MODx.load({
-			xtype: 'pisma-groups-window-create',
+			xtype: 'pisma-group-window-create',
 			id: Ext.id(),
 			listeners: {
 				success: {
@@ -89,7 +89,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 				success: {
 					fn: function (r) {
 						var w = MODx.load({
-							xtype: 'pisma-groups-window-update',
+							xtype: 'pisma-group-window-update',
 							id: Ext.id(),
 							record: r,
 							listeners: {
@@ -124,7 +124,7 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 			url: this.config.url,
 			params: {
 				action: 'mgr/pisma/remove',
-				ids: Ext.util.JSON.encode(ids),
+				ids: Ext.util.JSON.encode(ids)
 			},
 			listeners: {
 				success: {
@@ -137,48 +137,16 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 		return true;
 	},
 
-	getFields: function (config) {return ['id', 'active', 'email', 'firstname', 'lastname', 'signupdate', 'actions'];},
+	getFields: function (config) {return ['id', 'public', 'name', 'subscribers', 'actions'];},
 
 	getColumns: function (config) {
-		return [{
-			header: _('pisma_newsletters_id'),
-			dataIndex: 'id',
-			sortable: true,
-			width: 70
-		}, {
-			header: _('pisma_groups_active'),
-			dataIndex: 'active',
-			renderer: Pisma.utils.renderBoolean,
-			sortable: true,
-			width: 70,
-		}, {
-			header: _('pisma_groups_email'),
-			dataIndex: 'email',
-			sortable: false,
-			width: 150,
-		}, {
-			header: _('pisma_groups_firstname'),
-			dataIndex: 'firstname',
-			sortable: true,
-			width: 100,
-		}, {
-			header: _('pisma_groups_lastname'),
-			dataIndex: 'lastname',
-			sortable: true,
-			width: 100,
-		}, {
-			header: _('pisma_groups_signupdate'),
-			dataIndex: 'signupdate',
-			sortable: true,
-			width: 100,
-		}, {
-			header: _('pisma_groups_actions'),
-			dataIndex: 'actions',
-			renderer: Pisma.utils.renderActions,
-			sortable: false,
-			width: 100,
-			id: 'actions'
-		}];
+		return [
+			{header: _('pisma_newsletters_id'),dataIndex: 'id',sortable: true,width: 40},
+			{header: _('pisma_group_public'),dataIndex: 'public',sortable: true,	width: 70,renderer: Pisma.utils.renderBoolean},
+			{header: _('pisma_group_name'),dataIndex: 'name',sortable: true,width: 350},
+			{header: _('pisma_group_subscribers'),dataIndex: 'subscribers',sortable: true,width: 100},
+			{header: _('pisma_group_actions'),dataIndex: 'actions',sortable: false,width: 100,id: 'actions',renderer: Pisma.utils.renderActions}
+		];
 	},
 
 	getTopBar: function (config) {
@@ -222,3 +190,28 @@ Ext.extend(Pisma.grid.Groups, MODx.grid.Grid, {
 	}
 });
 Ext.reg('pisma-grid-groups', Pisma.grid.Groups);
+
+
+Pisma.window.CreateGroup = function (config) {
+	config = config || {};
+	if (!config.id) {config.id = 'pisma-group-window-create';}
+	Ext.applyIf(config, {
+		title: _('pisma_group_create'),
+		width: 550,
+		autoHeight: true,
+		url: Pisma.config.connector_url,
+		action: 'mgr/groups/create',
+		fields: [
+			{xtype: 'textfield',fieldLabel: _('pisma_group_name'),name: 'name',id: config.id + '-name',anchor: '99%',allowBlank: false},
+			{xtype: 'xcheckbox',boxLabel: _('pisma_group_public'),name: 'public',id: config.id + '-public',checked: false}
+		],
+		keys: [{
+			key: Ext.EventObject.ENTER, shift: true, fn: function () {
+				this.submit()
+			}, scope: this
+		}]
+	});
+	Pisma.window.CreateGroup.superclass.constructor.call(this, config);
+};
+Ext.extend(Pisma.window.CreateGroup, MODx.Window);
+Ext.reg('pisma-group-window-create', Pisma.window.CreateGroup);
